@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리액트</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <!-- 리액트 props 타입 선언 라이브러리 작동 잘 안 됨, 내가 작성한 코드가 이상해서 그런거 같음-->
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- 바벨을 이용해 jsx를 컴파일 -->
+    <script type="text/babel">
+        const root = document.getElementById("root")
+        function Btn({text, fontSize}) {
+            return (
+                <button
+                    style={{
+                        backgroundColor:"tomato",
+                        color:"white",
+                        padding:"10px 20px",
+                        border:0,
+                        borderRadius:10,
+                        fontSize:fontSize
+                    }}>
+                    {text}
+                </button>
+            )
+        }
+        Btn.propTypes = {
+            text: PropTypes.string.isRequired,
+            fontSize: PropTypes.number.isRequired,
+        }
+        function App() {
+            return (
+                <div>
+                    <Btn text="save Chnages" fontSize={18}/>
+                    <Btn text={14} fontSize={"text"}/>
+                    <Btn text="text2" />
+                </div>
+            )
+        }
+        ReactDOM.render(<App/>, root)
+    </script>
+</body>
+</html>
