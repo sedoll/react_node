@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById("root")
+        function MinutesToHours() {
+            const [minutes, setMinutes] = React.useState(0)
+            const [flip, setFlip] = React.useState(false)
+            function change(e) {
+                // console.log(e.target.value)
+                setMinutes(e.target.value)
+            }
+            function reset() {
+                setMinutes(0)
+            }
+            function fnFlip() {
+                setFlip(e=>!e)
+            }
+            return (
+                <div>
+                    <label htmlFor="minutes">Minutes</label> {/* 리액트에서 html for을 사용하는 경우에는 htmlFor로 사용 */}
+                    <input id="minutes" value={flip ? Math.round(minutes*60) : minutes} onChange={change} type="number" placeholder="minutes" disabled={flip}/>
+                    <br/>
+                    <p>{minutes}</p>
+                    <br/>
+                    <label htmlFor="hours">Minutes</label>
+                    <input id="hours" type="number" value={flip ? minutes : Math.round(minutes/60)} placeholder="hours" onChange={change} disabled={!flip}/>
+                    <br/>
+                    <button onClick={reset}>reset</button>
+                    <button onClick={fnFlip}>flip</button>
+                    <br/><hr/><br/>
+                </div>
+            )
+        }
+
+        function KmToMile() {
+            const [val, setVal] = React.useState(0)
+            const [flip, setFlip] = React.useState(false)
+            function change(e) {
+                // console.log(e.target.value)
+                setVal(e.target.value)
+            }
+            function reset() {
+                setVal(0)
+            }
+            function fnFlip() {
+                setFlip(e=>!e)
+            }
+            return (
+                <div>
+                    <label htmlFor="km">Km</label> {/* 리액트에서 html for을 사용하는 경우에는 htmlFor로 사용 */}
+                    <input id="km" value={flip ? val*1.6 : val} onChange={change} type="number" placeholder="km" disabled={flip}/>
+                    <br/>
+                    <p>{val}</p>
+                    <br/>
+                    <label htmlFor="mile">Mile</label>
+                    <input id="mile" type="number" value={flip ? val : val/1.6} placeholder="mile" onChange={change} disabled={!flip}/>
+                    <br/>
+                    <button onClick={reset}>reset</button>
+                    <button onClick={fnFlip}>flip</button>
+                    <br/><hr/><br/>
+                </div>
+            )
+        }
+
+        function App() {
+            const [idx, setIdx] = React.useState("0")
+            function change(e) {
+                setIdx(e.target.value)
+            }
+            return (
+                <div>
+                    <h1>Super Converter</h1>
+                    
+                    <select name="select" id="select" value={idx} onChange={change}>
+                        <option value="0">minutes</option>
+                        <option value="1">km</option>
+                    </select>
+                    {idx === "0" ? <MinutesToHours/> : null}
+                    {idx === "1" ? <KmToMile/> : null}
+                </div>
+            )
+        }
+        ReactDOM.render(<App/>, root)
+    </script>
+</body>
+</html>

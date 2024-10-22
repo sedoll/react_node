@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById("root")
+        // 리액트 프로퍼티 사용 예시
+        
+        // props에서 map 형태로 전체를 가져와 값을 추출하는 경우
+        function Btn(props) {
+            return (
+                <button style={{backgroundColor: "tomato",
+                        padding: "10px 20px",
+                        margin: "5px 10px",
+                        border: "none"}} onClick={() => click(props.value)}>
+                    {props.name}
+                </button>
+            )
+        }
+
+        // 처음부터 해당 함수에 들어가는 값을 나눠서 선언하는 경우
+        function Btn2({name, value}) {
+            return (
+                <button style={{backgroundColor: "tomato",
+                        padding: "10px 20px",
+                        margin: "5px 10px",
+                        border: "none"}} onClick={() => click(value)}>
+                        {name}
+                </button>
+            )
+        }
+
+        function click(value) {
+            console.log(value)
+        }
+
+        function App() {
+            return (
+                <div>
+                    <Btn name="btn1" value="1"/>
+                    <Btn name="btn2" value="2"/>
+                    <Btn2 name="btn3" value="3"/>
+                </div>
+            )
+        }
+        ReactDOM.render(<App/>, root)
+    </script>
+</body>
+</html>
