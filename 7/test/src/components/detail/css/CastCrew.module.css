@@ -1,0 +1,43 @@
+/* 출연진 섹션 스타일 */
+p {
+    margin-bottom: 5px;
+}
+
+.cast_crew {
+    margin-top: 40px;
+}
+
+.cast_list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cast_member {
+    max-width: 100px;
+    height: 400px;
+    max-height: 400px;
+    margin: 0 10px 10px 10px;
+}
+
+.cast_img {
+    width: 100px;
+    height: 150px;
+    border-radius: 15px;
+}
+
+.arrow {
+    width: 30px;
+    /* 화살표의 너비 */
+    height: 30px;
+    /* 화살표의 높이 */
+    border-radius: 50%;
+    /* 화살표 모양을 원형으로 */
+    color: white;
+    /* 화살표 색상 */
+    display: flex;
+    /* 화살표 안에 내용을 센터 정렬 */
+    justify-content: center;
+    /* 가운데 정렬 */
+    align-items: center;
+    /* 가운데 정렬 */
+}

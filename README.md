@@ -15,3 +15,8 @@ npm i prop-types
 ```cmd
 npm i react-router-dom
 ```
+
+4. slider
+```cmd
+npm i react-slick slick-carousel
+```
