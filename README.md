@@ -1,4 +1,5 @@
 # react_node
+[강의 주소](https://nomadcoders.co/react-for-beginners/lobby)
 
 ## react install
 1. install
